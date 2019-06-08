@@ -6,17 +6,17 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.define "container_master" do |containerhost01|
+  config.vm.define "containerMaster" do |containerhost01|
 
  	containerhost01.vm.box = "ubuntu/bionic64"
  	containerhost01.vm.network "forwarded_port", guest: 9000, host: 9001
   	#containerhost01.vm.network "public_network", bridge: "ens3"
 
   containerhost01.vm.network "private_network", ip: "192.168.50.2"
-	containerhost01.vm.hostname = "container_master"
+	containerhost01.vm.hostname = "containerMaster"
   containerhost01.vm.provider "virtualbox" do |vb|
   	vb.memory = "4096"
-   	vb.name = "container_master"
+   	vb.name = "containerMaster"
   end
 
   containerhost01.vm.provision "shell" do |s|
@@ -30,15 +30,15 @@ Vagrant.configure(2) do |config|
       end
 
 end
-config.vm.define "container_worker" do |containerhost02|
+config.vm.define "containerWorker" do |containerhost02|
 
  	containerhost02.vm.box = "ubuntu/bionic64"
   #containerhost02.vm.network "public_network"
   containerhost02.vm.network "private_network", ip: "192.168.50.3"
-	containerhost02.vm.hostname = "container_worker"
+	containerhost02.vm.hostname = "containerWorker"
   containerhost02.vm.provider "virtualbox" do |vb|
   	vb.memory = "2048"
-   	vb.name = "container_worker"
+   	vb.name = "containerWorker"
   end
 
   containerhost02.vm.provision "shell" do |s|
