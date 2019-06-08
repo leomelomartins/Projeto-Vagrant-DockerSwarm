@@ -20,8 +20,8 @@ Vagrant.configure(2) do |config|
   end
 
   containerhost01.vm.provision "shell" do |s|
-		#s.inline = "sudo apt update"
-            #s.inline = "sudo apt -y upgrade"
+		s.inline = "sudo apt update"
+            s.inline = "sudo apt -y upgrade"
 	end
 
       config.vm.provision "docker" do |d|
@@ -42,8 +42,8 @@ config.vm.define "containerWorker" do |containerhost02|
   end
 
   containerhost02.vm.provision "shell" do |s|
-    #s.inline = "sudo apt update"
-    #s.inline = "sudo apt -y upgrade"
+    s.inline = "sudo apt update"
+    s.inline = "sudo apt -y upgrade"
 	end
 
       config.vm.provision "docker" do |d|
