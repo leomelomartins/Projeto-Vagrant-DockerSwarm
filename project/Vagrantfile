@@ -24,6 +24,11 @@ Vagrant.configure(2) do |config|
             #s.inline = "sudo apt -y upgrade"
 	end
 
+      config.vm.provision "docker" do |d|
+            d.build_image "app_server"
+            d.run "app_server"
+      end
+
 end
 config.vm.define "container_worker" do |containerhost02|
 
@@ -40,6 +45,11 @@ config.vm.define "container_worker" do |containerhost02|
     #s.inline = "sudo apt update"
     #s.inline = "sudo apt -y upgrade"
 	end
+
+      config.vm.provision "docker" do |d|
+            d.build_image "app_client"
+            d.run "app_client"
+      end
 
 end
 end
