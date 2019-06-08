@@ -1,4 +1,5 @@
 FROM python: 3
 ADD client.py /
 RUN pip install pystrich
+RUN pip install requests
 CMD [ "python", "./client.py" ]
