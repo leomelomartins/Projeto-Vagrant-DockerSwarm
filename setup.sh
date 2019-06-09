@@ -10,3 +10,4 @@ sudo systemctl start docker
 sudo systemctl enable docker
 
 git clone https://github.com/leomelomartins/Projeto-Vagrant-DockerSwarm
+#testado
