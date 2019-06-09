@@ -18,10 +18,8 @@ Vagrant.configure(2) do |config|
    	         vb.name = "containerMaster"
       end
 
-  containerMaster.vm.provision "shell" do |s|
-		s.inline = "sudo apt update"
-            s.inline = "sudo apt -y upgrade"
-	end
+  containerMaster.vm.provision :shell, path: "server_config.sh"
+	     end
 
 end
 config.vm.define "containerWorker" do |containerWorker|
@@ -34,10 +32,9 @@ config.vm.define "containerWorker" do |containerWorker|
    	vb.name = "containerWorker"
   end
 
-  containerWorker.vm.provision "shell" do |s|
-    s.inline = "sudo apt update"
-    s.inline = "sudo apt -y upgrade"
-	end
+  containerWorker.vm.provision :shell, path: "client_config.sh"
+  end
 
 end
+      config.vm.provision :shell, path: "./setup.sh"
 end
