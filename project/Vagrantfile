@@ -46,10 +46,10 @@ config.vm.define "containerWorker" do |containerhost02|
     s.inline = "sudo apt -y upgrade"
 	end
 
-      config.vm.provision "docker" do |d|
-            d.build_image "Dockerfile_client"
-            d.run "Dockerfile_client"
-      end
+      #config.vm.provision "docker" do |d|
+      #      d.build_image "Dockerfile_client"
+      #      d.run "Dockerfile_client"
+      #end
 
 end
 end
