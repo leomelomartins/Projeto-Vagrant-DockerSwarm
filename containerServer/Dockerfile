@@ -1,10 +1,8 @@
-FROM ubuntu: 18.04
+FROM python:3
 
-RUN apt-get update -y
-RUN apt-get install -y python python-pip
+WORKDIR /usr/src/app
 
-
-ADD server.py /
-RUN pip install Flask
+RUN pip install flask
+RUN pip install requirements.txt
 
 CMD [ "python", "./server.py" ]

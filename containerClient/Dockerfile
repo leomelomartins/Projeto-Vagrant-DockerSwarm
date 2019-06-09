@@ -1,5 +1,8 @@
 FROM python: 3
-ADD client.py /
+
+WORKDIR /usr/src/app
+
 RUN pip install flask
+RUN pip install requirements.txt
 
 CMD [ "python", "./client.py" ]
