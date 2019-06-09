@@ -34,7 +34,6 @@ config.vm.define "containerWorker" do |containerWorker|
 
   containerWorker.vm.provision :shell, path: "client_config.sh"
   end
-
-end
+  
       config.vm.provision :shell, path: "./setup.sh"
 end
