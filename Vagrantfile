@@ -8,17 +8,17 @@
 Vagrant.configure(2) do |config|
   config.vm.define "containerMaster" do |containerMaster|
 
- 	server.vm.box = "ubuntu/bionic64"
- 	server.vm.network "forwarded_port", guest: 9000, host: 9002
+ 	containerMaster.vm.box = "ubuntu/bionic64"
+ 	containerMaster.vm.network "forwarded_port", guest: 9000, host: 9001
 
-  server.vm.network "private_network", ip: "192.168.50.2"
-	server.vm.hostname = "containerMaster"
-      server.vm.provider "virtualbox" do |vb|
+  containerMaster.vm.network "private_network", ip: "192.168.50.2"
+	containerMaster.vm.hostname = "containerMaster"
+      containerMaster.vm.provider "virtualbox" do |vb|
   	         vb.memory = "4096"
    	         vb.name = "containerMaster"
       end
 
-  server.vm.provision "shell" do |s|
+  containerMaster.vm.provision "shell" do |s|
 		s.inline = "sudo apt update"
             s.inline = "sudo apt -y upgrade"
 	end
@@ -26,15 +26,15 @@ Vagrant.configure(2) do |config|
 end
 config.vm.define "containerWorker" do |containerWorker|
 
- 	client.vm.box = "ubuntu/bionic64"
-      client.vm.network "private_network", ip: "192.168.50.3"
-	client.vm.hostname = "containerWorker"
-  client.vm.provider "virtualbox" do |vb|
+ 	containerWorker.vm.box = "ubuntu/bionic64"
+      containerWorker.vm.network "private_network", ip: "192.168.50.3"
+	containerWorker.vm.hostname = "containerWorker"
+  containerWorker.vm.provider "virtualbox" do |vb|
   	vb.memory = "2048"
    	vb.name = "containerWorker"
   end
 
-  containerhost02.vm.provision "shell" do |s|
+  containerWorker.vm.provision "shell" do |s|
     s.inline = "sudo apt update"
     s.inline = "sudo apt -y upgrade"
 	end
