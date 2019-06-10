@@ -3,7 +3,7 @@
 #instalando o flask
 sudo apt install -y python3
 sudo apt install -y python3-pip
-sudo pip install Flask
+sudo pip3 install Flask
 
 cd Projeto-Vagrant-DockerSwarm/containerClient
 chmod +x /vagrant/token/join.sh
