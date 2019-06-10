@@ -5,8 +5,7 @@ WORKDIR /usr/src/app
 COPY . .
 COPY requirements.txt ./
 
-RUN pip install flask
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-CMD [ "python", "./client.py" ]
+CMD [ "python", "./client.py" ]server
