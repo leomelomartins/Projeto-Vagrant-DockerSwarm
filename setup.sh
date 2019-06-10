@@ -2,7 +2,6 @@
 
 #atualizar sistema
 sudo apt update
-sudo apt -y upgrade
 
 #instala o docker nas duas VMs
 sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
