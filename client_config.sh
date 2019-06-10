@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #instalando o flask
-sudo apt install python3-pip
-sudo apt install python-pip
+sudo apt -y install python3-pip
+sudo apt -y install python-pip
 sudo pip install httplib2
 sudo pip install Flask
 
