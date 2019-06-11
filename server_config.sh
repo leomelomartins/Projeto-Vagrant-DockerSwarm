@@ -12,4 +12,4 @@ sudo docker build -t server .
 sudo docker network create -d overlay --subnet 10.0.10.0/24 ClusterNet
 
 #Criação do serviço
-sudo docker service create --name webserver --network ClusterNet --replicas 3 -p 5001:80 server
+sudo docker service create -d --name webserver --network ClusterNet --replicas 3 -p 5001:80 server
