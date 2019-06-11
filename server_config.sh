@@ -6,7 +6,7 @@ cd Projeto-Vagrant-DockerSwarm/containerServer
 #firewall-cmd --add-port=2377/tcp --permanent firewall-cmd --reload
 sudo docker swarm init --advertise-addr 192.168.50.2:2377 | sed 5!d > /vagrant/token.sh
 
-#Construindo imagem do Dockerfile do container Server
+#Construindo imagem do Dockerfile do container server
 sudo docker build -t server .
 
 #Criação da rede
